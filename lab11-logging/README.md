@@ -10,21 +10,16 @@
 
 ```
 lab11-logging/
-├── pom.xml                                  # Maven тохиргоо + Log4j 2.20.0
-├── src/
-│   └── main/
-│       ├── java/com/lab11/
-│       │   ├── BankAccount.java             # Алхам 2: 6 log level жишээ
-│       │   ├── Customer.java               # Алхам 3: NPE debug + засвар
-│       │   └── Main.java                   # Бүх туршилтыг ажиллуулна
-│       └── resources/
-│           └── log4j2.xml                  # Алхам 1: Log4j тохиргоо
-├── logs/
-│   └── app.log                             # Гаралтын лог файл
-├── analysis.md                             # Алхам 4: командын шинжилгээ
-└── README.md
-```
-
+├── pom.xml          
+├── README.md        
+├── analysis.md      
+└── src/main/
+    ├── java/com/lab11/
+    │   ├── BankAccount.java  
+    │   ├── Customer.java     
+    │   └── Main.java         
+    └── resources/
+        └── log4j2.xml        
 ---
 
 ## BankAccount ангийн тайлбар
