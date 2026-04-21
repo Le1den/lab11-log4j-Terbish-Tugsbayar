@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+
+        <!-- Console Appender: огноо, түвшин, анги:мөр, мессеж, thread ID -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c{1}:%L - %msg%n"/>
+        </Console>
+
+        <!-- RollingFile Appender: өдөр бүр + 1 MB тутамд файл солигдоно (Даалгавар 1.1) -->
+        <RollingFile name="RollingFile"
+                     fileName="logs/app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level %c{1}:%L - %msg%n"/>
+            <Policies>
+                <!-- Өдөр бүр шинэ файл -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- 1 MB тутамд файл солих — Даалгавар 1.1: ROLL_BY_SIZE -->
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <!-- Нийт 10 файл хадгалах -->
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- Root logger: DEBUG түвшин, хоёр аппендерт бичнэ -->
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
